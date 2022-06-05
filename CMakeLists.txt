@@ -18,7 +18,7 @@
 # and at http://www.gnu.org/licenses/.
 #
 
-
+# set(CMAKE_CXX_STANDARD 20)
 ########################################################################
 # Prevent in-tree builds
 ########################################################################
@@ -486,8 +486,8 @@ if(CMAKE_C_COMPILER_ID MATCHES "GNU" OR CMAKE_C_COMPILER_ID MATCHES "Clang")
       set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DHAVE_NEONv8")
     endif(${CMAKE_SYSTEM_PROCESSOR} MATCHES "aarch64")
     if(${CMAKE_SYSTEM_PROCESSOR} MATCHES "arm")
-      set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mfloat-abi=hard -mfpu=neon")
-      set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mfloat-abi=hard -mfpu=neon")
+      set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
+      set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
     endif(${CMAKE_SYSTEM_PROCESSOR} MATCHES "arm")
   else(${CMAKE_SYSTEM_PROCESSOR} MATCHES "arm" OR ${CMAKE_SYSTEM_PROCESSOR} MATCHES "aarch" OR ${CMAKE_SYSTEM_PROCESSOR} MATCHES "aarch64")
     set(HAVE_NEON "False")
@@ -548,8 +548,8 @@ endif()
 
 # Add -Werror to C/C++ flags for newer compilers
 if(NOT CMAKE_CXX_COMPILER_VERSION VERSION_LESS 5.0)
-  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Werror")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fpermissive")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fpermissive")
 endif()
 
 if(CMAKE_C_COMPILER_ID MATCHES "GNU")
@@ -695,4 +695,4 @@ else(ENABLE_SRSEPC)
   message(STATUS "srsEPC build disabled")
 endif(ENABLE_SRSEPC)
 
-add_subdirectory(test)
+# add_subdirectory(test)
