@@ -18,7 +18,7 @@
 # and at http://www.gnu.org/licenses/.
 #
 
-set(SOURCES arch_select.cc
+set(SOURCES 
             enb_events.cc
             backtrace.c
             byte_buffer.cc
@@ -28,22 +28,22 @@ set(SOURCES arch_select.cc
             crash_handler.cc
             gen_mch_tables.c
             liblte_security.cc
-            mac_pcap.cc
-            mac_pcap_base.cc
-            nas_pcap.cc
-            network_utils.cc
-            mac_pcap_net.cc
-            pcap.c
+            # mac_pcap.cc
+            # mac_pcap_base.cc
+            # nas_pcap.cc
+            # network_utils.cc
+            # mac_pcap_net.cc
+            # pcap.c
             phy_cfg_nr.cc
             phy_cfg_nr_default.cc
             rrc_common.cc
-            rlc_pcap.cc
-            s1ap_pcap.cc
-            ngap_pcap.cc
+            # rlc_pcap.cc
+            # s1ap_pcap.cc
+            # ngap_pcap.cc
             security.cc
             standard_streams.cc
-            thread_pool.cc
-            threads.c
+            # thread_pool.cc
+            # threads.c
             tti_sync_cv.cc
             time_prof.cc
             version.c
@@ -57,7 +57,7 @@ add_library(srsran_common STATIC ${SOURCES})
 add_custom_target(gen_build_info COMMAND cmake -P ${CMAKE_BINARY_DIR}/SRSRANbuildinfo.cmake)
 add_dependencies(srsran_common gen_build_info)
 
-add_executable(arch_select arch_select.cc)
+# add_executable(arch_select arch_select.cc)
 
 target_include_directories(srsran_common PUBLIC ${SEC_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR} ${BACKWARD_INCLUDE_DIRS})
 target_link_libraries(srsran_common srsran_phy support srslog ${SEC_LIBRARIES} ${BACKWARD_LIBRARIES} ${SCTP_LIBRARIES})

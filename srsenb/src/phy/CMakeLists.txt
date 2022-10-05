@@ -19,8 +19,8 @@
 #
 
 set(SOURCES
-        lte/cc_worker.cc
-        lte/sf_worker.cc
+        # lte/cc_worker.cc
+        # lte/sf_worker.cc
         lte/worker_pool.cc
         nr/slot_worker.cc
         nr/worker_pool.cc

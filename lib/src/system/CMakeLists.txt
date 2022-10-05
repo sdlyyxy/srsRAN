@@ -18,10 +18,10 @@
 # and at http://www.gnu.org/licenses/.
 #
 
-set(SOURCES
-        sys_metrics_processor.cc)
+# set(SOURCES
+#         sys_metrics_processor.cc)
 
 find_package(Threads REQUIRED)
 
-add_library(system STATIC ${SOURCES})
-target_link_libraries(system "${CMAKE_THREAD_LIBS_INIT}")
+# add_library(system STATIC ${SOURCES})
+# target_link_libraries(system "${CMAKE_THREAD_LIBS_INIT}")
